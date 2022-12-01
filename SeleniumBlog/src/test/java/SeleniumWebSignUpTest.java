@@ -14,7 +14,7 @@ public class SeleniumWebSignUpTest {
     private WebDriver driver;
 
     @BeforeTest
-    public void setUp() {
+    public void setUpWebPage() {
         //locate where the chrome is and set up
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         //Open the chromedriver
@@ -39,7 +39,7 @@ public class SeleniumWebSignUpTest {
     }
 
     @Test(priority = 1)
-    public void signUp() {
+    public void signUpPage() {
         // Click on the SignUp button
         driver.findElement(By.xpath("//div[2]/div/a[2]")).click();
         //make the page wait for few minute for the page to fully load
@@ -55,9 +55,8 @@ public class SeleniumWebSignUpTest {
         }
     }
 
-
     @Test(priority = 2)
-    public void negativeSignup() {
+    public void negativeSignupUsernameLessThan3() {
 
         String signUpPage = "https://selenium-blog.herokuapp.com/signup";
 
@@ -248,11 +247,11 @@ public class SeleniumWebSignUpTest {
         //Refresh the page to reset all input fields
         driver.navigate().refresh();
         //CliK and type in the username in the username field
-        driver.findElement(By.id("user_username")).sendKeys("Tadel");
+        driver.findElement(By.id("user_username")).sendKeys("Folukemi");
         //CliK and clear the content of the field
         driver.findElement(By.id("user_email")).clear();
         //CliK and type in the Email in the Email  field
-        driver.findElement(By.id("user_email")).sendKeys("Tadel@mailinator.com");
+        driver.findElement(By.id("user_email")).sendKeys("Folukemi@mailinator.com");
 
         //CliK and type in the password in the password field
         driver.findElement(By.id("user_password")).sendKeys("password");
